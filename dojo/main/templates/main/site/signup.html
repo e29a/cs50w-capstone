@@ -1,0 +1,34 @@
+{% extends 'main/site/.layout.html' %}
+{% load static %}
+
+{% block body %}
+<section id="auth-box">
+    <div class="auth">
+        <ul class="nav nav-underline">
+            <li class="nav-item">
+              <a class="tog nav-link active" aria-current="page" href="#">Sign up</a>
+            </li>
+            <li class="nav-item">
+              <a class="tog nav-link" href="/signin">Sign in</a>
+            </li>
+        </ul>
+        <br>
+        <div style="width: 70%;">
+            <h3>Signup</h3>
+            <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore similique, illo aspernatur officiis quaerat quas nesciunt beatae praesentium cum quam nam id explicabo, sint ab placeat aut consequatur, iste ipsam.</p>
+            <form action="">
+                <div class="mb-3">
+                    <input type="email" class="form-control mb-2 auth" autofocus placeholder="Email">
+                    <input type="text" class="form-control mb-2 auth" placeholder="Choose a username">
+                    <input type="password" class="form-control mb-2 auth" placeholder="Choose a password">
+                    <input type="password" class="form-control mb-2 auth" placeholder="Confirm password">
+                    <button type="submit" class="btn btn-outline-danger">Signup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="auth">
+
+    </div>
+</section>
+{% endblock %}

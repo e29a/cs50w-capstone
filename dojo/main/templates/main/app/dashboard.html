@@ -1,0 +1,39 @@
+{% extends 'main/app/.layout.html' %}
+{% load static %}
+
+{% block body %}
+<div class="dashboard-div bg-dark">
+    <div>
+        <h5 style="font-family: 'space mono';">Portfolio</h5>
+    </div>
+</div>
+
+<!-- chart js-->
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+<script>
+    const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = ["red", "green","blue","orange","brown"];
+    new Chart("myChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            title: {
+                display: false
+            },
+            legend:{
+                display: false
+            }
+        }
+    });
+</script>
+
+{% endblock %}
