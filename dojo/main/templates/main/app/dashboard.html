@@ -2,34 +2,64 @@
 {% load static %}
 
 {% block body %}
-<div class="dashboard-div bg-dark">
-    <div>
+<div class="dashboard-div bg-dark d-flex justify-content-between">
+    <div style="width:50%;">
         <h5 style="font-family: 'space mono';">Portfolio</h5>
+        <br>
+        <table>
+            <tr>
+                <td style="color:yellow;"><i class="fa-solid fa-circle"></i></td>
+                <td class="n">Bitcoin (BTN)</td>
+                <td style="color: green;">+ 0.2</td>
+                <td>23.1145</td>
+            </tr>
+            <tr>
+                <td style="color:silver;"><i class="fa-solid fa-circle"></i></td>
+                <td class="n">Litecoin (LTE)</td>
+                <td style="color: green;">+ 7.1</td>
+                <td>100.0000</td>
+            </tr>
+            <tr>
+                <td style="color:cyan;"><i class="fa-solid fa-circle"></i></td>
+                <td class="n">Etherium (ETH)</td>
+                <td style="color: red;">- 0.9</td>
+                <td>98.8000</td>
+            </tr>
+            <tr style="font-weight: 700;">
+                <td></td>
+                <td>TOTAL (USD)</td>
+                <td></td>
+                <td>120,000</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <canvas id="Line" style="width:100%; height: 200px;"></canvas>
     </div>
 </div>
 
 <!-- chart js-->
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
 <script>
-    const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [55, 49, 44, 24, 15];
-const barColors = ["red", "green","blue","orange","brown"];
-    new Chart("myChart", {
-        type: "pie",
+    const linexValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+    const lineyValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+
+    new Chart("Line", {
+        type: "line",
         data: {
-            labels: xValues,
+            labels: linexValues,
             datasets: [{
-                backgroundColor: barColors,
-                data: yValues
+                backgroundColor: "rgba(255,255,255,0.5)",
+                borderColor: "white",
+                data: lineyValues
             }]
         },
         options: {
             title: {
                 display: false
             },
-            legend:{
+            legend: {
                 display: false
             }
         }

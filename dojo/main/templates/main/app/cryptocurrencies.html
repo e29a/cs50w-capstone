@@ -1,0 +1,28 @@
+{% extends 'main/app/.layout.html' %}
+{% load static %}
+
+{% block body %}
+<div class="dashboard-div bg-dark">
+    <div>
+        <h5 style="font-family: 'space mono';">Cryptocurrencies</h5>
+        <p>Cryptocurrency market data curtesy of Coingecko API</p>
+        <br>
+        <table id="crypto_table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">24h</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="display_space">
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="{% static 'main/js/requests.js' %}"></script>
+{% endblock %}
