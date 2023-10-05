@@ -50,11 +50,11 @@
             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <div>
                 <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>xyu_txsu</strong>
+                <strong>{{ user.username }}</strong>
             </div>
             <div class="rank"
                 style="background-color: red; margin-left: 20px; width: 30%; text-align: center; font-family: 'Space Mono'; font-size: 12px;">
-                5th Kyu</div>
+                {{ user.rank }}</div>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -71,7 +71,7 @@
         <div class="container-fluid">
             <a class="navbar-brand text-white" style="font-family: inter;">Dashboard</a>
             <div class="d-flex" role="search">
-                <button class="btn text-white btn-outline-light" style="margin-right: 10px;">Current Balance: $122,000</button>
+                <button class="btn text-white btn-outline-light" style="margin-right: 10px;">Current Balance: ${{ total_value }}</button>
                 <button class="btn btn-outline-danger">New Trade</button>
                 <button class="btn text-white"><i class="fa-regular fa-bell"></i> 2</button>
             </form>

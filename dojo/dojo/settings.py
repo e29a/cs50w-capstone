@@ -25,9 +25,8 @@ SECRET_KEY = 'django-insecure-eo8q3x#gk7c+eqvh0rh-=$iqra$&i37fu3qqyl4=+_7vvhacca
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-e29a-cs50wcapstone-i27eyhj32fp.ws-eu105.gitpod.io']
-CSRF_TRUSTED_DOMAINS = ["https://8000-e29a-cs50wcapstone-i27eyhj32fp.ws-eu105.gitpod.io"]
-
+ALLOWED_HOSTS = ['8000-e29a-cs50wcapstone-i27eyhj32fp.ws-eu105.gitpod.io', 'localhost']
+CSRF_TRUSTED_DOMAINS = ["https://8000-e29a-cs50wcapstone-i27eyhj32fp.ws-eu105.gitpod.io", 'https://localhost:8000', 'https://shiny-space-succotash-5g44j5695r7hvxxp-8000.app.github.dev']
 
 # Application definition
 
