@@ -16,12 +16,13 @@
         <div style="width: 70%;">
             <h3>Signup</h3>
             <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore similique, illo aspernatur officiis quaerat quas nesciunt beatae praesentium cum quam nam id explicabo, sint ab placeat aut consequatur, iste ipsam.</p>
-            <form action="">
+            <form action="/signup" method="post">
+                {% csrf_token %}
                 <div class="mb-3">
-                    <input type="email" class="form-control mb-2 auth" autofocus placeholder="Email">
-                    <input type="text" class="form-control mb-2 auth" placeholder="Choose a username">
-                    <input type="password" class="form-control mb-2 auth" placeholder="Choose a password">
-                    <input type="password" class="form-control mb-2 auth" placeholder="Confirm password">
+                    <input type="email" name="email" class="form-control mb-2 auth" autofocus placeholder="Email">
+                    <input type="text" name="username" class="form-control mb-2 auth" placeholder="Choose a username">
+                    <input type="password" name="password" class="form-control mb-2 auth" placeholder="Choose a password">
+                    <input type="password" name="confirmation" class="form-control mb-2 auth" placeholder="Confirm password">
                     <button type="submit" class="btn btn-outline-danger">Signup</button>
                 </div>
             </form>
