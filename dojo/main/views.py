@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from datetime import datetime, timedelta
 from .models import * 
+from decimal import Decimal
 
 
 # Create your views here.
@@ -77,13 +78,15 @@ def sell_crypto(request, crypto, amount, value):
             pass
     
     if currency_exists:
-        if currency_row.quantity >= amount:
-            currency_row.quantity = currency_row.quantity - amount
+        if currency_row.quantity >= Decimal(amount):
+            currency_row.quantity = currency_row.quantity - Decimal(amount)
+            currency_row.save()
 
-            usd_row = UserPortfolio.objects.get(user=user.username, cryptocurrency="usd")
-            usd_row = usd_row + value
+            usd_row = UserPortfolio.objects.get(user=user.username, cryptocurrency="tether")
+            usd_row.quantity = usd_row.quantity + Decimal(value)
+            usd_row.save()
 
-            return JsonResponse({"message": "You have successfully sold" + amount + crypto + "for" + value + "USD"}, status=201)
+            return JsonResponse({"message": "You have successfully sold " + amount + " " + crypto + " for " + value + " USDT"}, status=201)
         else:
             return JsonResponse({"message": "You do not have enough funds to complete the trade"}, status="500")
     else:
@@ -106,14 +109,15 @@ def buy_crypto(request, crypto, amount, value):
         else:
             pass
     
-    if usd_row.quantity >= value:
-        usd_row.quantity -= value
+    if usd_row.quantity >= Decimal(value):
+        usd_row.quantity -= Decimal(value)
+        usd_row.save()
         if currency_exists:
-            currency_row.quantity += amount
+            currency_row.quantity += Decimal(amount)
         else:
-            new_currency_row = UserPortfolio(user=user.username, cryptocurrency=crypto, quantity=quantity, value=value)
+            new_currency_row = UserPortfolio(user=user.username, cryptocurrency=crypto, quantity=amount)
             new_currency_row.save()
-        return JsonResponse({"message": "You have successfully bought" + amount + crypto + "for" + value}, status="500")
+        return JsonResponse({"message": "You have successfully bought " + amount + " " + crypto + " for " + value + " USDT"}, status=201)
     else:
         return JsonResponse({"message": "You do not have enough funds to complete the trade"}, status="500")
 

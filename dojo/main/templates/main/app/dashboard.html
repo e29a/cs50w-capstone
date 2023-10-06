@@ -3,10 +3,9 @@
 
 {% block body %}
 <div class="dashboard-div bg-dark">
-    <h5 style="font-family: 'space mono';">New Trade</h5><br>
+    <h5 style="font-family: 'space mono';">New Trade</h5>
     <form id="buy-sell-form">
         <span style="display: flex;">
-            <!-- Input fields for buy/sell actions -->
             <select id="crypto_dropdown" class="form-select" style="width: 18%; margin-right:10px;"
                 aria-label="Default select example">
                 <option selected>Select currency</option>
@@ -20,10 +19,10 @@
     </form>
 </div>
 <div class="dashboard-div bg-dark d-flex justify-content-between">
-    <div style="width:50%;">
+    <div>
         <h5 style="font-family: 'space mono';">Portfolio</h5>
         <br>
-        <table id="portfolio_table">
+        <table id="portfolio_table" class="width: 100%;">
             
         </table>
     </div>
@@ -31,6 +30,6 @@
         <canvas id="portfolioChart" style="width:100%; height: 200px;"></canvas>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 {% endblock %}

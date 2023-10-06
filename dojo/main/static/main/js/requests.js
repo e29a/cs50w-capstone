@@ -64,8 +64,8 @@ function displayAll() {
                 <td><img src="${currency.image}" width="20px" height="20px"/></td>
                 <td class="symbol_col">${currency.symbol}</td>
                 <td>${currency.name}</td>
-                <td>${currency.current_price}</td>
-                <td>${currency.price_change_percentage_24h}</td>
+                <td>${currency.current_price}USDT</td>
+                <td>${currency.price_change_percentage_24h}%</td>
                 <td><button class="btn btn-outline-light">Buy</button></td>
             </tr>
             `;
@@ -158,7 +158,7 @@ async function getUserPortfolio() {
     total = total.toFixed(2); // Limit the total to 2 decimal places
 
     portfolio_table.innerHTML += `
-      <tr style="border-top: 1px solid black;">
+      <tr style="border-top: 1px solid white;">
         <td colspan="3">Total</td>
         <td> ${total} </td>
       </tr>
@@ -187,6 +187,9 @@ async function sellCrypto() {
     const message = await response.json();
 
     console.log(message);
+    alert(JSON.stringify(message.message))
+    location.reload()
+
   } catch (error) {
     console.error(error);
   }
@@ -208,6 +211,9 @@ async function buyCrypto() {
     const message = await response.json();
 
     console.log(message);
+    alert(JSON.stringify(message.message))
+    location.reload()
+
   } catch (error) {
     console.error(error);
   }
