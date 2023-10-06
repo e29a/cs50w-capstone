@@ -7,12 +7,9 @@
     <form id="buy-sell-form">
         <span style="display: flex;">
             <!-- Input fields for buy/sell actions -->
-            <select id="cryptocurrency-select" class="form-select" style="width: 10%; margin-right:10px;"
+            <select id="crypto_dropdown" class="form-select" style="width: 18%; margin-right:10px;"
                 aria-label="Default select example">
-                <option selected>BTC</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option selected>Select currency</option>
             </select>
             <input class="form-control" style="width: 30%; margin-right: 10px;" type="number" id="quantity"
                 placeholder="Quantity">
@@ -21,7 +18,6 @@
             <button class="btn btn-outline-danger" id="sell-button" type="button">Sell</button>
         </span>
     </form>
-    <div id="result-message"></div>
 </div>
 <div class="dashboard-div bg-dark d-flex justify-content-between">
     <div style="width:50%;">

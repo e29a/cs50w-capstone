@@ -30,7 +30,7 @@ def signup_view(request):
         username = request.POST['username']
         password = request.POST['password']
         user = CustomUser.objects.create_user(username=username, password=password, profile="", rank="7th Kyu")
-        newportfolio = UserPortfolio.objects.create(user=username, cryptocurrency='USD', quantity=100000)
+        newportfolio = UserPortfolio.objects.create(user=username, cryptocurrency='tether', quantity=100000)
         newportfolio.save()
         login(request, user)
         return redirect('app/dashboard')
@@ -47,17 +47,18 @@ def app_cryptocurrencies(request):
 
 
 
-
-
-
-
-
-
-
 def get_user_portfolio(request):
     user = request.user
     portfolio = UserPortfolio.objects.filter(user=user.username)
-    return JsonResponse([portfolio.serialize() for item in portfolio], safe=False)
+    
+    # Check if the portfolio is empty
+    if not portfolio:
+        return JsonResponse({"message": "Not found"}, status=404)
+    
+    # Serialize each UserPortfolio object in the queryset
+    serialized_portfolio = [item.serialize() for item in portfolio]
+    
+    return JsonResponse(serialized_portfolio, safe=False)
 
 # Sell cryptocurrency
 def sell_crypto(request, crypto, amount, value):
@@ -92,7 +93,7 @@ def sell_crypto(request, crypto, amount, value):
 def buy_crypto(request, crypto, amount, value):
     user = request.user
     portfolio = UserPortfolio.objects.filter(user=user.username)
-    usd_row = UserPortfolio.objects.get(user=user.username, cryptocurrency="usd")
+    usd_row = UserPortfolio.objects.get(user=user.username, cryptocurrency="tether")
 
     currency_exists = False
     currency_row = ""
@@ -112,6 +113,7 @@ def buy_crypto(request, crypto, amount, value):
         else:
             new_currency_row = UserPortfolio(user=user.username, cryptocurrency=crypto, quantity=quantity, value=value)
             new_currency_row.save()
+        return JsonResponse({"message": "You have successfully bought" + amount + crypto + "for" + value}, status="500")
     else:
         return JsonResponse({"message": "You do not have enough funds to complete the trade"}, status="500")
 

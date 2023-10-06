@@ -12,8 +12,15 @@ class UserPortfolio(models.Model):
     user = models.CharField(max_length=24)
     cryptocurrency = models.CharField(max_length=5)
     quantity = models.DecimalField(max_digits=10, decimal_places=2)
-    value = models.DecimalField(max_digits=10, decimal_places=2)
     timestamp = models.DateTimeField(auto_now_add=True)
+    def serialize(self):
+        return {
+            "id": self.id,
+            "user": self.user,
+            "cryptocurrency": self.cryptocurrency,
+            "quantity": self.quantity,
+            "timestamp": self.timestamp
+        }
 
 class Trades(models.Model):
     trade_type = models.CharField(max_length=5)
