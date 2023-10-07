@@ -15,11 +15,13 @@ Dojo stands out as a Capstone project due to its unique concept and complexity. 
 - User authentication and data models implemented using Django
 - Responsive and visually appealing interface with Bootstrap
 
+ My project is distinct and complex in that it required an understanding not only in web development but also in cryptocurrency trading. The project involved implementing a dynamic website that allosws users to register, login, view their portfolio and buy/sell cryptocurrencies. The use of Coingecko API adds an additional layer of complexity to the project, as it involved making API calls using javascript to retrieve real-time cryptocurrency data. The backend of the project invovled implementing user authentication, models, APIs and views using Django. Effort has also been invested in creating an aesthetic interface that is responsive using Bootstrap. 
+
 Despite its ongoing development, Dojo fulfills the requirements for the CS50w Capstone project and can serve as a foundation for future enhancements.
 
 ## Directory Structure
 
-- `dojo/main/views.py`: Backend implementation, including authentication, page rendering, and buy/sell functions.
+- `dojo/main/views.py`: Backend implementation, including authentication, page rendering, and buy/sell functions. Website views and api endponts.
 - `dojo/main/urls.py`: App routes configuration.
 - `dojo/main/models.py`: Data models for the application.
 - `dojo/static/main/js/requests.js`: JavaScript file responsible for making CoinGecko API calls and implementing buy/sell functions.
