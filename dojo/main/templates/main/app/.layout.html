@@ -3,37 +3,36 @@
 
 {% block layout %}
 
-<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
-    style="width: 280px; height: 100vh; position: fixed; border-right: .5px solid black;">
+<div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <img src="{% static 'main/images/dojo_logo.png' %}" alt="Logo" width="30" height="30"
             class="d-inline-block align-text-top mr-5" style="position: relative; margin:0px 10px;">
-        <span class="fs-4">Dojo</span>
+        <span class="fs-4 h">Dojo</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
             <a href="/app/dashboard" class="nav-link text-white">
                 <i class="fa-solid fa-torii-gate"></i>
-                Dashboard
+                <span class="h">Dashboard</span>
             </a>
         </li>
         <li>
             <a href="/app/cryptocurrencies" class="nav-link text-white">
                 <i class="fa-solid fa-chart-line"></i>
-                Cryptocurrencies
+                <span class="h">Cryptocurrencies</span>
             </a>
         </li>
         <li>
             <a href="/app/leaderboards" class="nav-link text-white">
                 <i class="fa-solid fa-flag"></i>
-                Leaderboards
+                <span class="h">Leaderboards</span>
             </a>
         </li>
         <li>
             <a href="/app/tutorials" class="nav-link text-white">
                 <i class="fa-solid fa-life-ring"></i>
-                Tutorials
+                <span class="h">Tutorials</span>
             </a>
         </li>
     </ul>
@@ -44,7 +43,7 @@
             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <div>
                 <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>{{ user.username }}</strong>
+                <strong class="h">{{ user.username }}</strong>
             </div>
             <!--
             <div class="rank"
@@ -53,16 +52,14 @@
             -->
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" href="/logout">Sign out</a></li>
         </ul>
     </div>
 </div>
-<div style="margin-left: 280px;">
+<div id="b">
     <nav class="navbar bg-dark border-body">
         <div class="container-fluid">
             <a class="navbar-brand text-white" style="font-family: inter;">Dashboard</a>

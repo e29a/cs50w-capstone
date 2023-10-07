@@ -141,10 +141,81 @@ td {
     width: 300px;
 }
 
-#crypto_table td, th{
+#crypto_table td,
+th {
     padding: 5px;
 }
 
-.symbol_col{
+.symbol_col {
     text-transform: uppercase;
+}
+
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    position: fixed;
+    border-right: .5px solid black;
+}
+
+#b{
+    margin-left: 280px;
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    #hero {
+        padding: 50px 20px;
+    }
+
+    .about-block {
+        margin-left: 20px;
+        margin-right: 20px;
+        display: block
+    }
+
+    .about-block div {
+        width: 100%;
+    }
+
+    #auth-box {
+        display: block;
+        padding: 100px 20px;
+    }
+
+    #auth-box div.auth {
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 80px;
+        overflow: hidden;
+        height: 100vh;
+        position: fixed;
+        border-right: .5px solid black;
+    }
+
+    .sidebar .h{
+        display: none;
+    }
+    #b{
+        margin-left: 80px;
+    }
+
+    .dashboard-div {
+        width: calc(100vw - 80px - 20px);
+        padding: 30px;
+        margin: 10px;
+        border-radius: 5px;
+    }
+
+    table{
+        font-size: 10px;
+    }
+    table img{
+        width: 12px !important;
+        height: 12px !important;
+    }
 }

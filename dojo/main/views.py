@@ -1,4 +1,4 @@
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -12,7 +12,7 @@ from decimal import Decimal
 def index(request):
     return render(request, "main/site/index.html")
 
-@csrf_exempt
+@csrf_exempt 
 def signin_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -25,6 +25,10 @@ def signin_view(request):
             return redirect('/signin')
     return render(request, 'main/site/signin.html')
 
+def logout_view(request):
+    logout(request)
+    return redirect('/signin')
+    
 @csrf_exempt
 def signup_view(request):
     if request.method == 'POST':
@@ -78,7 +82,11 @@ def sell_crypto(request, crypto, amount, value):
             pass
     
     if currency_exists:
-        if currency_row.quantity >= Decimal(amount):
+        if currency_row.quantity == Decimal(amount):
+            currency_row.delete()
+            return JsonResponse({"message": "You have successfully sold " + amount + " " + crypto + " for " + value + " USDT"}, status=201)
+
+        elif currency_row.quantity > Decimal(amount):
             currency_row.quantity = currency_row.quantity - Decimal(amount)
             currency_row.save()
 
