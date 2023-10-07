@@ -171,7 +171,40 @@ async function getUserPortfolio() {
 
 getUserPortfolio();
 
+async function showTotal(){
 
+  try {
+    const response = await fetch('/api/get_user_portfolio');
+    const portfolio = await response.json();
+
+    console.log(portfolio);
+    var total = 0;
+
+    // Define a function to get crypto info for an item
+    async function getCryptoInfoForItem(item) {
+      const price = await getCryptoInfo(["market_data", "current_price", "usd"], item.cryptocurrency);
+      const name = await getCryptoInfo(["name"], item.cryptocurrency);
+
+      return { price, name};
+    }
+
+    // Fetch crypto info for each item in the portfolio
+    const cryptoInfoList = await Promise.all(portfolio.map(getCryptoInfoForItem));
+
+    cryptoInfoList.forEach((cryptoInfo, index) => {
+      const item = portfolio[index];
+      var value = (item.quantity * cryptoInfo.price).toFixed(2); // Limit to 2 decimal places
+      total += parseFloat(value); // Update the total, ensuring it's a float
+    });
+
+    total = total.toFixed(2); // Limit the total to 2 decimal places
+    document.getElementById('total_display').innerHTML += total
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+showTotal()
 
 // sell crypto
 async function sellCrypto() {
