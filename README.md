@@ -1,5 +1,3 @@
-Certainly! Here's a revised version of your README file:
-
 # Dojo - Cryptocurrency Trading Simulator
 
 ## Project Description
