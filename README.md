@@ -4,7 +4,7 @@
 
 Dojo is an experimental cryptocurrency trading simulator built with a Django backend and a vanilla JavaScript frontend. This project utilizes the CoinGecko API for cryptocurrency data and aims to showcase the skills developed throughout the CS50w course. While it is still a work in progress and not ready for live deployment, it serves as a demonstration of web development and cryptocurrency trading knowledge.
 
-## Features and Complexity
+## Distinctiveness and Complexity
 
 Dojo stands out as a Capstone project due to its unique concept and complexity. Key features and complexities include:
 
