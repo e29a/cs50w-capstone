@@ -162,8 +162,6 @@ async function getUserPortfolio() {
         <td> ${total} </td>
       </tr>
     `;
-
-    document.getElementById('total_display').innerHTML += total
   } catch (error) {
     console.error(error);
   }
@@ -198,7 +196,7 @@ async function showTotal(){
     });
 
     total = total.toFixed(2); // Limit the total to 2 decimal places
-    document.getElementById('total_display').innerHTML += total
+    document.getElementById('total_display').innerHTML = "Current Balance: $" + total
   } catch (error) {
     console.error(error);
   }
