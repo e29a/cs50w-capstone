@@ -1,27 +1,67 @@
-# cs50w-capstone - Dojo: A cryptocurrency trading simulator written with Django and Javascript
+Certainly! Here's a revised version of your README file:
+
+# Dojo - Cryptocurrency Trading Simulator
 
 ## Project Description
-Dojo is an experimental cryptocurrency trading generator build with a Django backend and running on a vanilla javascript front-end. It utilizes the demo coingecko API but besides that, effort has been put into minimizing the dependencies as much as possible. While the product is under continuious development and is far from complete enough to host and deploy live, I beleive it is at a level sufficent for submission as CS50w Capstone project, as a demonstration of the skills I have developed throughout the course.
 
-## Distinctiveness and Complexity
-My cs50 Capstone project is unlike any project I've been required to complete as part of the rest of the course. Besides being a different idea and being built from the scratch, my project is distinct and complex in that it riquired an understanding not only in web development but also in cryptocurrency trading. The project involved implementing a dynamic website that allosws users to register, login, view their portfolio and buy/sell cryptocurrencies. The use of Coingecko API adds an additional layer of complexity to the project, as it involved making API calls using javascript to retrieve real-time cryptocurrency data. The backend of the project involed implementing user authentication, models, APIs and views using Django. Effort has also been invested in creating an aesthetic interface that is responsive. In conclusion, though the project is yet to be capable of deployment and still needs the implementation of additional features, It fulfills the requirements for cs50w Capstone Project and can continue its development in the future.
+Dojo is an experimental cryptocurrency trading simulator built with a Django backend and a vanilla JavaScript frontend. This project utilizes the CoinGecko API for cryptocurrency data and aims to showcase the skills developed throughout the CS50w course. While it is still a work in progress and not ready for live deployment, it serves as a demonstration of web development and cryptocurrency trading knowledge.
 
-## Directory/Files summary
-- `dojo/main/views.py` includes all the implementations so far for the web app's backend, including authentication, page rendering, and buy/sell functions
-- `dojo/main/urls.py` Includes all of the app's routes.
-- `dojo/main/models.py` includes all of the models on which the app runs
-- `dojo/static/main/js/requests.js` is a javascript file which contains all the fetch requests to the CoinGecko API and to also the Buy/Sell functions implemented in models.py. It also includes functions to display a table of currencies, a list of currencies, and a utility function to get specific information about any coin from the CoinGecko API.
-- `dojo/static/main/css/common.css` is the only css file of the project, and rather brief as i made use of Bootstrap as well as inline styles,
-- `dojo/templates/main/site` is a directory which contains the templates for the homepage, signin, and signup pages.
-- `dojo/templates/main/app` Is the directory which contains the templates for all the pages which are seen after the user has signed up/logged in.
-- `dojo/requirements.txt` is a list of all the python dependencies required to run the app.
+## Features and Complexity
 
-## How to run
-To run a development server of the app, run the following commands in the terminal:
-```
-cd dojo
-python manage.py makemigrations
-python manage.py migrate
-python manage.py runserver
+Dojo stands out as a Capstone project due to its unique concept and complexity. Key features and complexities include:
 
-```
+- User registration and login
+- Portfolio management
+- Cryptocurrency buying and selling
+- Integration with the CoinGecko API for real-time data using Javascript
+- User authentication and data models implemented using Django
+- Responsive and visually appealing interface with Bootstrap
+
+Despite its ongoing development, Dojo fulfills the requirements for the CS50w Capstone project and can serve as a foundation for future enhancements.
+
+## Directory Structure
+
+- `dojo/main/views.py`: Backend implementation, including authentication, page rendering, and buy/sell functions.
+- `dojo/main/urls.py`: App routes configuration.
+- `dojo/main/models.py`: Data models for the application.
+- `dojo/static/main/js/requests.js`: JavaScript file responsible for making CoinGecko API calls and implementing buy/sell functions.
+- `dojo/static/main/css/common.css`: CSS file for styling, supplemented by Bootstrap and inline styles.
+- `dojo/templates/main/site`: Templates for the homepage, sign-in, and sign-up pages.
+- `dojo/templates/main/app`: Templates for pages accessible after user authentication.
+- `dojo/requirements.txt`: List of Python dependencies required to run the app.
+
+## Getting Started
+
+To run a development server for the app, follow these steps:
+
+1. Navigate to the project directory:
+   ```
+   cd dojo
+   ```
+
+2. Apply migrations:
+   ```
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+3. Start the development server:
+   ```
+   python manage.py runserver
+   ```
+
+
+## Future Development
+
+Dojo is a work in progress, and future development may include:
+
+- Enhanced trading features
+- Portfolio analytics, and charts to display inportant data
+- Ability to follow other users and see their activity
+- Leaderboards and ranking system to gamify the experience
+- Ability to view trade history
+- Improved user interface and responsiveness
+- Security and deployment readiness
+
+## Acknowledgments
+I would like to acknowledge the use of the CoinGecko API for providing cryptocurrency data, which is a crucial component of this project.
